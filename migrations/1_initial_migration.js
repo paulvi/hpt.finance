@@ -5,6 +5,7 @@ const Unitroller = artifacts.require('Unitroller');
 const Comptroller = artifacts.require('Comptroller');
 const JumpRateModel = artifacts.require('JumpRateModel');
 const network = require('../networks/hceo-self.json');
+//const network = require('../networks/heco-mainnet.json');
 const CErc20Delegate = artifacts.require('CErc20Delegate');
 const CErc20Delegator = artifacts.require('CErc20Delegator');
 
@@ -17,7 +18,7 @@ module.exports = async function(deployer) {
     await deployer.deploy(SimplePriceOracle, network.Admins.priceOracleFeeder).then(function(res) { //首先部署语言机，使用一个最简单版本的预言机
         simplePriceOracle = res;
         return deployer.deploy(PriceOracleProxy);
-    });.then(function(res) { //然后部署一个语言机的代理,将预言机逻辑分开
+    }).then(function(res) { //然后部署一个语言机的代理,将预言机逻辑分开
         priceOracleProxy = res;
         return deployer.deploy(Unitroller);
     }).then(function(res) { //然后部署Unitroller负责管理语言机的权限
@@ -99,10 +100,16 @@ module.exports = async function(deployer) {
             return comptroller._supportMarket(cToken.address, {from:network.Admins.comptrollerAdmin});
         }).then(function(res) { //然后将该币种加入市场
             console.log("supportMarket finish, begin set underlying price");
-            return simplePriceOracle.setUnderlyingPrice(cToken.address, token.initPrice, {from:network.Admins.priceOracleFeeder});
+            return simplePriceOracle.setDirectPrice(1, token.contract, token.initPrice, {from:network.Admins.priceOracleFeeder});
         }).then(function(res) { //然后设置该币种的初始价格
             console.log("set underlying price finish begin setCollaterator");
             return comptroller._setCollateralFactor(cToken.address, token.collateralFactor, {from:network.Admins.comptrollerAdmin}); 
+        }).then(function(res) {
+            console.log("set collateralFactor finish begin setReserveFactor");
+            return cToken._setReserveFactor(token['reserveFactor'], {from:network.Admins.tokenAdmin})
+        }).then(function(res) {
+            console.log("set reserveFactor finish begin add Comp");
+            return comptroller._addCompMarkets([cToken.address], {from:network.Admins.comptrollerAdmin});
         }).then(function(res) { //然后设置该币种的质押率
             console.log('c' + token['name'] + ' address: ' + cToken.address);
         });
