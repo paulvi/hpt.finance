@@ -3,14 +3,14 @@
         {
             "name": "HBTC",
             "contract": "0x66a79d23e58475d2738179ca52cd0b41d73f0bea", 
-            "baseRatePerYear": "16300000000000000", 
+            "baseRatePerYear": "163000000000000000", 
             "multiplierPerYear": "100000000000000000",
             "jumpMultiplierPerYear": "400000000000000000",
             "kink_": "750000000000000000",
             "initialExchangeRate": "1000000000000000000",
             "initPrice": "45086540000000000000000",
             "collateralFactor": "600000000000000000",
-            "reserveFactor": "100000000000000000"
+            "reserveFactor": "200000000000000000"
         },
         {
             "name": "ETH",
@@ -22,7 +22,7 @@
             "initialExchangeRate": "1000000000000000000",
             "initPrice": "1713310000000000000000",
             "collateralFactor": "700000000000000000",
-            "reserveFactor": "100000000000000000"
+            "reserveFactor": "200000000000000000"
         },
         {
             "name": "WHT",
@@ -34,7 +34,7 @@
             "initialExchangeRate": "1000000000000000000",
             "initPrice": "11876400000000000000",
             "collateralFactor": "680000000000000000",
-            "reserveFactor": "100000000000000000"
+            "reserveFactor": "200000000000000000"
         },
         {
             "name": "HPT",
@@ -44,43 +44,42 @@
             "jumpMultiplierPerYear": "400000000000000000",
             "kink_": "750000000000000000",
             "initialExchangeRate": "1000000000000000000",
-            "initPrice": "859900000000000000",
+            "initPrice": "8599000000000000",
             "collateralFactor": "300000000000000000",
-            "reserveFactor": "900000000000000000"
+            "reserveFactor": "200000000000000000"
         },
         {
             "name": "HUSD",
             "contract": "0x0298c2b32eae4da002a15f36fdf7615bea3da047",
-            "baseRatePerYear": "300000000000000000", 
-            "multiplierPerYear": "400000000000000000",
+            "baseRatePerYear": "520100000000000000", 
+            "multiplierPerYear": "100000000000000000",
             "jumpMultiplierPerYear": "400000000000000000",
-            "kink_": "500000000000000000",
+            "kink_": "750000000000000000",
             "initialExchangeRate": "1000000000000000000",
             "initPrice": "1000000000000000000",
-            "collateralFactor": "900000000000000000",
-            "reserveFactor": "900000000000000000"
+            "collateralFactor": "680000000000000000",
+            "reserveFactor": "200000000000000000"
         },
         {
             "name": "USDT",
             "contract": "0xa71edc38d189767582c38a3145b5873052c3e47a",
-            "baseRatePerYear": "500000000000000000", 
-            "multiplierPerYear": "200000000000000000",
-            "jumpMultiplierPerYear": "100000000000000000",
-            "kink_": "500000000000000000",
+            "baseRatePerYear": "386900000000000000", 
+            "multiplierPerYear": "100000000000000000",
+            "jumpMultiplierPerYear": "400000000000000000",
+            "kink_": "750000000000000000",
             "initialExchangeRate": "1000000000000000000",
             "initPrice": "1000000000000000000",
-            "collateralFactor": "900000000000000000",
-            "reserveFactor": "900000000000000000"
+            "collateralFactor": "700000000000000000",
+            "reserveFactor": "200000000000000000"
         }
     ],
     "Admins": {
-        "priceOracleAdmin" : "0x41Ef4a5902762050FB3ACE4EB9108D106AFf4606",
-        "priceOracleFeeder": "0x41Ef4a5902762050FB3ACE4EB9108D106AFf4606",
-        "comptrollerAdmin": "0x41Ef4a5902762050FB3ACE4EB9108D106AFf4606",
-        "tokenAdmin": "0x41Ef4a5902762050FB3ACE4EB9108D106AFf4606"
+        "priceOracleAdmin" : "0x2d0f8C750f6C02D0F05Ab2c116C7251B8A21EB2e",
+        "priceOracleFeeder": "0x2d0f8C750f6C02D0F05Ab2c116C7251B8A21EB2e",
+        "comptrollerAdmin": "0x2d0f8C750f6C02D0F05Ab2c116C7251B8A21EB2e",
+        "tokenAdmin": "0x2d0f8C750f6C02D0F05Ab2c116C7251B8A21EB2e"
     },
     "userMaxAsset": "10",
-    "closeFactorMantissa": "900000000000000000",
+    "closeFactorMantissa": "800000000000000000",
     "liquidationIncentiveMantissa":"1100000000000000000"
-
 }
